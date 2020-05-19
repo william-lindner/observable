@@ -1,10 +1,10 @@
-function AppEvent() {
+function SingleEvent() {
     this.queue = [];
     this.ready = null;
     this.value = null;
 }
 
-AppEvent.prototype = {
+SingleEvent.prototype = {
     dep: function (cb) {
         if (this.ready) {
             cb();
@@ -58,7 +58,7 @@ function observe(obj) {
 
 // ---
 window.__events = {
-    analytics: new AppEvent(),
+    analytics: new SingleEvent(),
 };
 
 observe(__events);
